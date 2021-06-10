@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<form action="#" onsubmit="return validation()">
+		username:
+		<input type="text" name="" id="user"><!--  here u can use "required" as well -->
+		<span id="username" style="color:red"></span>
+		<br> 
+
+
+		password:
+		<input type="text" name="" id="pass"><!--  here u can use "required" as well -->
+		<span id="password" style="color:blue"></span> 
+		<br>
+
+
+		confirm_password:
+		<input type="password" name="" id="confirm"><!--  here u can use "required" as well -->
+		<span id="confirm_password" style="color:blue"></span> 
+		<br>
+
+
+		mobile_number:
+		<input type="text" name="" id="mobile"><!--  here u can use "required" as well -->
+		<span id="mobile_number" style="color:blue"></span> 
+		<br>
+
+		 
+		<button type="submit">
+			submit
+		</button>
+	</form>
+
+
+<script>
+	function validation()
+	{
+		var user = document.getElementById('user').value;  //get
+		var pass = document.getElementById('pass').value; 
+		var confirm = document.getElementById('confirm').value;
+        var mobile = document.getElementById('mobile').value;
+		if(user=="")
+		{
+           document.getElementById('username').innerHTML="* please fill the username field"; //set
+           return false;
+		}
+
+		if((user.length<=2)||(user.length>20))
+		{
+			document.getElementById('username').innerHTML="* username length must be in between 2 and 20";
+			return false;
+		}
+		if(!isNaN(user))
+		{
+			document.getElementById('username').innerHTML="*Please enter character";
+			return false;
+		}
+		if((pass.length<=7))
+		{
+			document.getElementById('password').innerHTML="*password cannot be less than 7 letters";
+			return false;
+		}
+		if(pass!=confirm)
+		{
+
+             document.getElementById('confirm_password').innerHTML="* password do match";
+             return false;
+
+		}
+		if(mobile=="")
+		{
+           document.getElementById('mobile_number').innerHTML="* please fill the username field"; //set
+           return false;
+		}
+		if(mobile.length<10)
+		{
+			document.getElementById('mobile_number').innerHTML="* please fill the valid mobile_number"; //set
+           return false;
+		}
+
+		if(isNaN(mobile))
+		{
+			document.getElementById('mobile_number').innerHTML="* only numeric characters are not allowed "; //set
+           return false;
+		}
+
+
+
+	}
+</script>
+
+</body>
+</html>
